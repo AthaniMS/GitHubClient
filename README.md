@@ -29,11 +29,6 @@ The detailed view shows individual GitHub user profiles, including their name, b
 
 ![Detailed View](screenshots/UserDetails.png)
 
-### Video
-
-Video shows the List view & Detailed view.
-
-![GitHubClient_App](screenshots/)
 
 ## Installation
 
