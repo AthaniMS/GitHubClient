@@ -29,6 +29,33 @@ The detailed view shows individual GitHub user profiles, including their name, b
 
 ![Detailed View](screenshots/UserDetails.png)
 
+### Improvements
+
+1. **Performance Optimization**
+   - Implement pagination for the list view to load users incrementally.
+   - Use caching mechanisms to store previously fetched data.
+
+2. **UI/UX Enhancements**
+   - Add animations for transitions and loading states.
+   - Improve error handling with user-friendly messages and retry options.
+
+3. **Accessibility**
+   - Ensure all interactive elements have appropriate content descriptions.
+   - Support dynamic font scaling.
+
+### Additional Features
+
+1. **Search Functionality**
+   - Add a search bar to allow users to find specific GitHub users.
+
+2. **Favorites**
+   - Allow users to mark profiles or repositories as favorites and view them in a dedicated section.
+
+3. **User Authentication**
+   - Implement GitHub OAuth for personalized data access.
+
+4. **Repository Details**
+   - Enhance detailed views with more information about repositories, such as issues and pull requests.
 
 ## Installation
 
