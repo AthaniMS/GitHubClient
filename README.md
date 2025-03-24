@@ -21,13 +21,13 @@ The app is built with Kotlin, Jetpack Compose, and follows the MVVM architecture
 
 The list view displays a list of GitHub users with their avatars and usernames.
 
-![List View](screenshots/UserList.png)
+<img src="screenshots/UserList.png" alt="Screenshot" width="350"/>
 
 ### Detailed View
 
 The detailed view shows individual GitHub user profiles, including their name, bio, number of followers, and repositories.
 
-![Detailed View](screenshots/UserDetails.png)
+<img src="screenshots/UserDetails.png" alt="Screenshot" width="350"/>
 
 ### Improvements
 
