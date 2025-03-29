@@ -9,13 +9,14 @@ import com.athani.githubclient.model.GitHubUserDetails
 import com.athani.githubclient.model.GitHubUserItem
 import com.athani.githubclient.model.GitHubUserRepositoryItem
 import com.athani.githubclient.model.Resource
-import com.athani.githubclient.network.GitHUbClientApi
+import com.athani.githubclient.repository.GitHubClientRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GitHubClientViewModel @Inject constructor(private val api: GitHUbClientApi) : ViewModel(){
+class GitHubClientViewModel @Inject constructor(private val repository: GitHubClientRepository) :
+    ViewModel() {
     var users by mutableStateOf<Resource<List<GitHubUserItem>>>(Resource.Loading)
         private set
     var userDetails by mutableStateOf<Resource<GitHubUserDetails>>(Resource.Loading)
@@ -26,28 +27,31 @@ class GitHubClientViewModel @Inject constructor(private val api: GitHUbClientApi
     init {
         fetchUsers()
     }
+
     private fun fetchUsers() {
         viewModelScope.launch {
             users = try {
-                Resource.Success(api.getUsers())
+                Resource.Success(repository.getUsers())
             } catch (e: Exception) {
                 Resource.Error(e.localizedMessage ?: "Unknown Error!")
             }
         }
     }
+
     fun fetchUserDetails(username: String) {
         viewModelScope.launch {
             userDetails = try {
-                Resource.Success(api.getUserDetails(username))
+                Resource.Success(repository.getUserDetails(username))
             } catch (e: Exception) {
                 Resource.Error(e.localizedMessage ?: "Unknown Error!")
             }
         }
     }
+
     fun fetchUserRepositories(username: String) {
         viewModelScope.launch {
             userRepositories = try {
-                Resource.Success(api.getUserRepository(username))
+                Resource.Success(repository.getUserRepository(username))
             } catch (e: Exception) {
                 Resource.Error(e.localizedMessage ?: "Unknown Error!")
             }
